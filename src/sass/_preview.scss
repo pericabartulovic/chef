@@ -12,7 +12,7 @@
 
     &:hover {
       background-color: $color-grey-light-1;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
     }
 
     &--active {

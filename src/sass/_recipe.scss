@@ -1,19 +1,19 @@
 .recipe {
-  background-color: $color-grey-light-1;
+  // background-color: $color-grey-light-1;
+  grid-area: head / recipe;
 
   ///////////
   // FIGURE
   &__fig {
-    height: 32rem;
+    height: 35rem;
     position: relative;
-    // transform: scale(1.04) translateY(-1px);
-    transform-origin: top;
+    padding-right: 1rem;
 
     &::before {
       content: '';
       display: block;
       height: 100%;
-      width: 100%;
+      width: calc(100% - 1rem);
       position: absolute;
       top: 0;
       left: 0;
@@ -34,27 +34,28 @@
   }
 
   &__title {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 20%) skewY(-6deg);
-    color: #fff;
+    // position: absolute;
+    // bottom: 0;
+    // left: 50%;
+    // transform: translate(-50%, 20%) skewY(-6deg);
+    padding: 2rem 0;
+    color: $color-primary;
     font-weight: 700;
     font-size: 3.25rem;
     text-transform: uppercase;
-    width: 50%;
+    // width: 50%;
     line-height: 1.95;
     text-align: center;
 
     span {
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
+      // -webkit-box-decoration-break: clone;
+      // box-decoration-break: clone;
       padding: 1.3rem 2rem;
-      background-image: linear-gradient(
-        to right bottom,
-        $color-grad-1,
-        $color-grad-2
-      );
+      // background-image: linear-gradient(
+      //   to right bottom,
+      //   $color-grad-1,
+      //   $color-grad-2
+      // );
     }
 
     @media only screen and (max-width: $bp-medium) {
@@ -67,7 +68,7 @@
   &__details {
     display: flex;
     align-items: center;
-    padding: 7.5rem 8rem 3.5rem 8rem;
+    padding: 3.5rem 8rem;
   }
 
   &__info {
@@ -122,10 +123,11 @@
   ///////////
   // INGREDIENTS
   &__ingredients {
-    padding: 5rem 8rem;
+    padding: 5rem 8rem 5rem 7rem;
+    margin-right: 1rem;
     font-size: 1.6rem;
     line-height: 1.4;
-    background-color: $color-grey-light-2;
+    background-color: #ffece5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,5 +177,9 @@
 
   &__publisher {
     font-weight: 700;
+  }
+  
+  &__btn {
+    background-image: linear-gradient(to right bottom, #fad9be, #c48958) !important;  
   }
 }

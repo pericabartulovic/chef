@@ -91,7 +91,7 @@
 }
 
 .btn--round {
-  background-image: $gradient;
+  background-image: linear-gradient(to right bottom, #c27a55, #6c5a3c);
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -115,7 +115,7 @@
   svg {
     height: 2.5rem;
     width: 2.5rem;
-    fill: #fff;
+    fill: $color-primary;
   }
 }
 
@@ -129,7 +129,7 @@
   svg {
     height: 100%;
     width: 100%;
-    fill: $color-primary;
+    fill: #ff9e92;
     transition: all 0.3s;
   }
 
