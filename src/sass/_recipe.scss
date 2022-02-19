@@ -8,6 +8,13 @@
     height: 35rem;
     position: relative;
     padding-right: 1rem;
+    
+    @media only screen and (max-width: $bp-small) {
+      height: 30rem;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      height: 20rem;
+    }
 
     &::before {
       content: '';
@@ -46,6 +53,15 @@
     // width: 50%;
     line-height: 1.95;
     text-align: center;
+    
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.2rem;
+      padding: 1rem 0;
+    }
 
     span {
       // -webkit-box-decoration-break: clone;
@@ -59,7 +75,7 @@
     }
 
     @media only screen and (max-width: $bp-medium) {
-      width: 70%;
+      // width: 70%;
     }
   }
 
@@ -69,6 +85,17 @@
     display: flex;
     align-items: center;
     padding: 3.5rem 8rem;
+    
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem 4rem;
+    }
+    @media only screen and (max-width: $bp-tab) {
+      justify-content: center;
+      padding: 0rem 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      padding: 0;
+    }
   }
 
   &__info {
@@ -79,6 +106,10 @@
 
     &:not(:last-child) {
       margin-right: 4.5rem;
+      
+      @media only screen and (max-width: $bp-tab) {
+        margin-right: 1rem;
+      }
     }
   }
 
@@ -92,6 +123,12 @@
   &__info-data {
     margin-right: 0.5rem;
     font-weight: 700;
+  }
+  
+  &__info-text {
+    @media only screen and (max-width: $bp-smallest) {
+      display: none;
+    }
   }
 
   &__info-buttons {
@@ -112,6 +149,15 @@
 
     margin-left: auto;
     margin-right: 1.75rem;
+    
+    @media only screen and (max-width: $bp-tab) {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+    
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
 
     svg {
       height: 2.25rem;
@@ -131,6 +177,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    @media only screen and (max-width: $bp-tab) {
+      padding: 2rem 4rem;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 1rem 2rem;
+    }
+    
+    
   }
 
   &__ingredient-list {
@@ -138,6 +194,15 @@
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 3rem;
     list-style: none;
+  
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+      row-gap: 1.5rem;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+      row-gap: 1rem;
+    }
   }
 
   &__ingredient {
@@ -166,6 +231,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    @media only screen and (max-width: $bp-large) {
+      padding: 3rem 6rem;
+    }
+    @media only screen and (max-width: $bp-tiny) {
+      padding: 1.5rem 3rem;
+    }
   }
 
   &__directions-text {

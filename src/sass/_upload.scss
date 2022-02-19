@@ -11,6 +11,17 @@
   box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
   z-index: 1000;
   transition: all 0.5s;
+  
+  @media only screen and (max-width: $bp-tab) {
+    width: 85rem;
+  }
+  @media only screen and (max-width: $bp-small) {
+    width: 70rem;
+    padding: 2rem 1rem;
+  }
+  @media only screen and (max-width: 26.6em) {
+    width: 50rem;
+  }
 
   .btn--close-modal {
     font-family: inherit;
@@ -46,6 +57,15 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem 6rem;
+  
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    gap: 2rem 3rem;
+  }
+  
+  @media only screen and (max-width: 375px) {
+    width: 50rem;
+  }
 
   &__column {
     display: grid;

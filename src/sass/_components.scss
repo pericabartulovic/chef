@@ -103,6 +103,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @media only screen and (max-width: $bp-small) {
+    height: 3rem;
+    width: 3rem;
+  }
 
   &:hover {
     transform: scale(1.07);
@@ -116,6 +121,11 @@
     height: 2.5rem;
     width: 2.5rem;
     fill: $color-primary;
+    
+    @media only screen and (max-width: $bp-small) {
+      height: 2rem;
+      width: 2rem;
+    }
   }
 }
 
@@ -160,6 +170,9 @@
   margin-bottom: 2.5rem;
   text-align: center;
   // transform: skewY(-3deg);
+  @media only screen and (max-width: $bp-smallest) {
+    margin-bottom: 1rem;
+  }
 }
 
 .link:link,

@@ -14,8 +14,10 @@ $gradient: linear-gradient(to right bottom, #fbdb8999, #f4b08299);
 
 $bp-large: 78.15em; // 1250px
 $bp-medium: 61.25em; // 980px
+$bp-tab: 48em;       //768px  
 $bp-small: 37.5em; // 600px
 $bp-smallest: 31.25em; // 500px
+$bp-tiny: 22.5em; // 360px
 
 * {
   margin: 0;
@@ -35,6 +37,10 @@ html {
   @media only screen and (max-width: $bp-medium) {
     font-size: 50%;
   }
+  
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 44%;
+  }
 }
 
 body {
@@ -42,11 +48,16 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: $color-grey-dark-1;
-  background-image: linear-gradient(to right bottom, #463c2199, #76553f99), url(../img/hamburger.jpg);
+  background-image: linear-gradient(to right bottom, #463c2199, #76553f99), url(../img/cook.jpg);
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   background-repeat: repeat-x;
   min-height: calc(100vh - 2 * 4vw);
+  
+  @media only screen and (max-width: $bp-small) {
+    background-image: none;
+    background-color: #332c1c;
+  }
 }
 
 .container {
@@ -67,7 +78,24 @@ body {
 
   @media only screen and (max-width: $bp-large) {
     max-width: 100%;
+    min-height: 130rem;
     margin: 0;
     border-radius: 0;
+    grid-template-columns: 35% 65%;
   }
+  
+  @media only screen and (max-width: $bp-tab) {
+    grid-template-columns: 35% 65%;
+  }
+  
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: 35% 65%;
+    min-height: 120rem;
+  }
+  
+  @media only screen and (max-width: $bp-smallest) {
+    grid-template-columns: 40% 60%;
+  }
+  
+  
 }
