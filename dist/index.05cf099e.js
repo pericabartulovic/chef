@@ -1436,7 +1436,9 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
-var _fractional = require("fractional");
+// import { Fraction } from 'fractional';
+var _fractionalJs = require("../fractional.js");
+var _fractionalJsDefault = parcelHelpers.interopDefault(_fractionalJs);
 class RecipeView extends _viewJsDefault.default {
     _parentElement = document.querySelector('.recipe');
     _errorMessage = `We couldn't find that recipe. Please try another one!`;
@@ -1547,7 +1549,7 @@ class RecipeView extends _viewJsDefault.default {
         <svg class="recipe__icon">
             <use href="${_iconsSvgDefault.default}#icon-check"></use>
         </svg>
-        <div class="recipe__quantity">${ing.quantity ? new _fractional.Fraction(ing.quantity).toString() : ''}</div>
+        <div class="recipe__quantity">${ing.quantity ? new _fractionalJsDefault.default(ing.quantity).toString() : ''}</div>
         <div class="recipe__description">
             <span class="recipe__unit">${ing.unit}</span>
             ${ing.description}
@@ -1558,7 +1560,7 @@ class RecipeView extends _viewJsDefault.default {
 }
 exports.default = new RecipeView();
 
-},{"./View.js":"9dvKv","url:../../img/icons.svg":"5jwFy","fractional":"7ggqM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9dvKv":[function(require,module,exports) {
+},{"./View.js":"9dvKv","url:../../img/icons.svg":"5jwFy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","../fractional.js":"GCAiO"}],"9dvKv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsSvg = require("url:../../img/icons.svg");
@@ -1679,72 +1681,16 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"7ggqM":[function(require,module,exports) {
-/*
-fraction.js
-A Javascript fraction library.
-
-Copyright (c) 2009  Erik Garrison <erik@hypervolu.me>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-*/ /* Fractions */ /* 
- *
- * Fraction objects are comprised of a numerator and a denomenator.  These
- * values can be accessed at fraction.numerator and fraction.denomenator.
- *
- * Fractions are always returned and stored in lowest-form normalized format.
- * This is accomplished via Fraction.normalize.
- *
- * The following mathematical operations on fractions are supported:
- *
- * Fraction.equals
- * Fraction.add
- * Fraction.subtract
- * Fraction.multiply
- * Fraction.divide
- *
- * These operations accept both numbers and fraction objects.  (Best results
- * are guaranteed when the input is a fraction object.)  They all return a new
- * Fraction object.
- *
- * Usage:
- *
- * TODO
- *
- */ /*
- * The Fraction constructor takes one of:
- *   an explicit numerator (integer) and denominator (integer),
- *   a string representation of the fraction (string),
- *   or a floating-point number (float)
- *
- * These initialization methods are provided for convenience.  Because of
- * rounding issues the best results will be given when the fraction is
- * constructed from an explicit integer numerator and denomenator, and not a
- * decimal number.
- *
- *
- * e.g. new Fraction(1, 2) --> 1/2
- *      new Fraction('1/2') --> 1/2
- *      new Fraction('2 3/4') --> 11/4  (prints as 2 3/4)
- *
- */ Fraction = function(numerator, denominator) {
+},{}],"GCAiO":[function(require,module,exports) {
+Fraction = (function(_Fraction) {
+    function Fraction(_x, _x2) {
+        return _Fraction.apply(this, arguments);
+    }
+    Fraction.toString = function() {
+        return _Fraction.toString();
+    };
+    return Fraction;
+})(function(numerator, denominator) {
     /* double argument invocation */ if (typeof numerator !== 'undefined' && denominator) {
         if (typeof numerator === 'number' && typeof denominator === 'number') {
             this.numerator = numerator;
@@ -1759,6 +1705,7 @@ THE SOFTWARE.
     /* single-argument invocation */ } else if (typeof denominator === 'undefined') {
         num = numerator; // swap variable names for legibility
         if (typeof num === 'number') {
+            // just a straight number init
             this.numerator = num;
             this.denominator = 1;
         } else if (typeof num === 'string') {
@@ -1777,6 +1724,7 @@ THE SOFTWARE.
                     this.denominator = f[1];
                 /* string floating point */ } else if (typeof a === 'string' && a.match('\.')) return new Fraction(parseFloat(a));
                 else {
+                    // just passed a whole number as a string
                     this.numerator = parseInt(a);
                     this.denominator = 1;
                 }
@@ -1784,7 +1732,7 @@ THE SOFTWARE.
         }
     }
     this.normalize();
-};
+});
 Fraction.prototype.clone = function() {
     return new Fraction(this.numerator, this.denominator);
 };
@@ -1843,7 +1791,7 @@ Fraction.prototype.divide = function(b) {
 };
 Fraction.prototype.equals = function(b) {
     if (!(b instanceof Fraction)) b = new Fraction(b);
-    // fractions that are equal should have equal normalized forms
+     // fractions that are equal should have equal normalized forms
     var a = this.clone().normalize();
     var b = b.clone().normalize();
     return a.numerator === b.numerator && a.denominator === b.denominator;
@@ -1852,10 +1800,10 @@ Fraction.prototype.equals = function(b) {
  * e.g. 4/16 -> 1/4, 14/28 -> 1/2, etc.
  * This is called after all math ops.
  */ Fraction.prototype.normalize = (function() {
-    var isFloat = function(n) {
+    var isFloat = function isFloat(n) {
         return typeof n === 'number' && (n > 0 && n % 1 > 0 && n % 1 < 1 || n < 0 && n % -1 < 0 && n % -1 > -1);
     };
-    var roundToPlaces = function(n, places) {
+    var roundToPlaces = function roundToPlaces(n, places) {
         if (!places) return Math.round(n);
         else {
             var scalar = Math.pow(10, places);
@@ -1866,10 +1814,10 @@ Fraction.prototype.equals = function(b) {
         // XXX hackish.  Is there a better way to address this issue?
         //
         /* first check if we have decimals, and if we do eliminate them
-         * multiply by the 10 ^ number of decimal places in the number
-         * round the number to nine decimal places
-         * to avoid js floating point funnies
-         */ if (isFloat(this.denominator)) {
+     * multiply by the 10 ^ number of decimal places in the number
+     * round the number to nine decimal places
+     * to avoid js floating point funnies
+     */ if (isFloat(this.denominator)) {
             var rounded = roundToPlaces(this.denominator, 9);
             var scaleup = Math.pow(10, rounded.toString().split('.')[1].length);
             this.denominator = Math.round(this.denominator * scaleup); // this !!! should be a whole number
@@ -1897,8 +1845,7 @@ Fraction.prototype.equals = function(b) {
  */ Fraction.gcf = function(a, b) {
     var common_factors = [];
     var fa = Fraction.primeFactors(a);
-    var fb = Fraction.primeFactors(b);
-    // for each factor in fa
+    var fb = Fraction.primeFactors(b); // for each factor in fa
     // if it's also in fb
     // put it into the common factors
     fa.forEach(function(factor) {
@@ -1916,8 +1863,7 @@ Fraction.prototype.equals = function(b) {
         return r;
     }();
     return gcf;
-};
-// Adapted from: 
+}; // Adapted from: 
 // http://www.btinternet.com/~se16/js/factor.htm
 Fraction.primeFactors = function(n) {
     var num = Math.abs(n);
@@ -1927,7 +1873,8 @@ Fraction.primeFactors = function(n) {
         factors.push(_factor); // so keep it
         num = num / _factor; // and divide our search point by it
     } else _factor++; // and increment
-    if (num != 1) factors.push(num); //    so it too should be recorded
+    if (num != 1) // ...this must be the last prime factor
+    factors.push(num); //    so it too should be recorded
     return factors; // Return the prime factors
 };
 module.exports.Fraction = Fraction;
@@ -14560,6 +14507,6 @@ $({
     }
 });
 
-},{"../internals/export":"8yfGv","../internals/function-call":"jhLed"}]},["kS06O","lA0Es"], "lA0Es", "parcelRequirec991")
+},{"../internals/export":"8yfGv","../internals/function-call":"jhLed"}]},["kS06O","lA0Es"], "lA0Es", "parcelRequire1209")
 
 //# sourceMappingURL=index.05cf099e.js.map
