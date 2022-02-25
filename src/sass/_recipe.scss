@@ -1,0 +1,257 @@
+.recipe {
+  // background-color: $color-grey-light-1;
+  grid-area: head / recipe;
+
+  ///////////
+  // FIGURE
+  &__fig {
+    height: 35rem;
+    position: relative;
+    padding-right: 1rem;
+    
+    @media only screen and (max-width: $bp-small) {
+      height: 30rem;
+    }
+    @media only screen and (max-width: $bp-smallest) {
+      height: 20rem;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: calc(100% - 1rem);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-grad-1,
+        $color-grad-2
+      );
+      opacity: 0.6;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    // position: absolute;
+    // bottom: 0;
+    // left: 50%;
+    // transform: translate(-50%, 20%) skewY(-6deg);
+    padding: 2rem 0;
+    color: $color-primary;
+    font-weight: 700;
+    font-size: 3.25rem;
+    text-transform: uppercase;
+    // width: 50%;
+    line-height: 1.95;
+    text-align: center;
+    
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+    @media only screen and (max-width: $bp-small) {
+      font-size: 2.2rem;
+      padding: 1rem 0;
+    }
+
+    span {
+      // -webkit-box-decoration-break: clone;
+      // box-decoration-break: clone;
+      padding: 1.3rem 2rem;
+      // background-image: linear-gradient(
+      //   to right bottom,
+      //   $color-grad-1,
+      //   $color-grad-2
+      // );
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      // width: 70%;
+    }
+  }
+
+  ///////////
+  // DETAILS
+  &__details {
+    display: flex;
+    align-items: center;
+    padding: 3.5rem 8rem;
+    
+    @media only screen and (max-width: $bp-medium) {
+      padding: 2rem 4rem;
+    }
+    @media only screen and (max-width: $bp-tab) {
+      justify-content: center;
+      padding: 0rem 2rem;
+    }
+    @media only screen and (max-width: $bp-small) {
+      padding: 0;
+    }
+  }
+
+  &__info {
+    font-size: 1.65rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: 4.5rem;
+      
+      @media only screen and (max-width: $bp-tab) {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  &__info-icon {
+    height: 2.35rem;
+    width: 2.35rem;
+    fill: $color-primary;
+    margin-right: 1.15rem;
+  }
+
+  &__info-data {
+    margin-right: 0.5rem;
+    font-weight: 700;
+  }
+  
+  &__info-text {
+    @media only screen and (max-width: $bp-smallest) {
+      display: none;
+    }
+  }
+
+  &__info-buttons {
+    display: flex;
+    margin-left: 1.6rem;
+    transform: translateY(-1px);
+  }
+
+  &__user-generated {
+    background-color: darken($color-grey-light-2, 2%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 10rem;
+
+    margin-left: auto;
+    margin-right: 1.75rem;
+    
+    @media only screen and (max-width: $bp-tab) {
+      margin-left: 1rem;
+      margin-right: 0;
+    }
+    
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
+
+    svg {
+      height: 2.25rem;
+      width: 2.25rem;
+      fill: $color-primary;
+    }
+  }
+
+  ///////////
+  // INGREDIENTS
+  &__ingredients {
+    padding: 5rem 8rem 5rem 7rem;
+    margin-right: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    background-color: #ffece5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @media only screen and (max-width: $bp-tab) {
+      padding: 2rem 4rem;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 1rem 2rem;
+    }
+    
+    
+  }
+
+  &__ingredient-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 3rem;
+    list-style: none;
+  
+    @media only screen and (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+      row-gap: 1.5rem;
+    }
+    
+    @media only screen and (max-width: $bp-smallest) {
+      row-gap: 1rem;
+    }
+  }
+
+  &__ingredient {
+    display: flex;
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: $color-primary;
+    margin-right: 1.1rem;
+    flex: 0 0 auto;
+    margin-top: 0.1rem;
+  }
+
+  &__quantity {
+    margin-right: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  ///////////
+  // DIRECTIONS
+  &__directions {
+    padding: 5rem 10rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    @media only screen and (max-width: $bp-large) {
+      padding: 3rem 6rem;
+    }
+    @media only screen and (max-width: $bp-tiny) {
+      padding: 1.5rem 3rem;
+    }
+  }
+
+  &__directions-text {
+    font-size: 1.7rem;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    color: $color-grey-dark-2;
+  }
+
+  &__publisher {
+    font-weight: 700;
+  }
+  
+  &__btn {
+    background-image: linear-gradient(to right bottom, #fad9be, #c48958) !important;  
+  }
+}

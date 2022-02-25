@@ -1,0 +1,40 @@
+.search-results {
+  grid-area: list;
+  // padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.results {
+  list-style: none;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.pagination {
+  // margin-top: auto;
+  padding: 1rem 3.25rem;
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  &__btn {
+    &--prev {
+      float: left;
+    }
+    &--next {
+      float: right;
+    }
+  }
+}
+
+.copyright {
+  color: $color-grey-light-3;
+  font-size: 1.2rem;
+  padding: 0 3.5rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
