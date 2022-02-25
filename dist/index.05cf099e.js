@@ -1437,6 +1437,8 @@ var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 var _fractional = require("fractional");
+// const Fraction = require('fractional');
+// import Fraction from '../fractional.js'
 class RecipeView extends _viewJsDefault.default {
     _parentElement = document.querySelector('.recipe');
     _errorMessage = `We couldn't find that recipe. Please try another one!`;
@@ -1558,7 +1560,7 @@ class RecipeView extends _viewJsDefault.default {
 }
 exports.default = new RecipeView();
 
-},{"./View.js":"9dvKv","url:../../img/icons.svg":"5jwFy","fractional":"7ggqM","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9dvKv":[function(require,module,exports) {
+},{"./View.js":"9dvKv","url:../../img/icons.svg":"5jwFy","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","fractional":"7ggqM"}],"9dvKv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _iconsSvg = require("url:../../img/icons.svg");
@@ -14560,6 +14562,6 @@ $({
     }
 });
 
-},{"../internals/export":"8yfGv","../internals/function-call":"jhLed"}]},["kS06O","lA0Es"], "lA0Es", "parcelRequirec991")
+},{"../internals/export":"8yfGv","../internals/function-call":"jhLed"}]},["kS06O","lA0Es"], "lA0Es", "parcelRequire1209")
 
 //# sourceMappingURL=index.05cf099e.js.map
