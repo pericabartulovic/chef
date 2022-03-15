@@ -447,7 +447,13 @@ body {
 
 @media only screen and (max-width: 22.5em) {
   .nav__btn {
-    padding: 0 0.5rem;
+    padding: 0 0.5rem !important;
+  }
+}
+
+@media only screen and (max-width: 37.5em) {
+  .nav__btn {
+    padding: 0rem 0.8rem !important;
   }
 }
 
