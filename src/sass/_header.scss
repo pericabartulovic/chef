@@ -125,6 +125,10 @@
       padding: 0 .5rem;
     }
     
+    @media only screen and (max-width: $bp-small) {
+      padding: 0rem .8rem;
+    }
+    
 
     svg {
       height: 2.4rem;
