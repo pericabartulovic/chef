@@ -70,7 +70,8 @@ body {
   box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
 
   display: grid;
-  grid-template-rows: 10rem minmax(100rem, auto);
+  // grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-rows: 10rem minmax(min-content, max-content);
   grid-template-columns: 1fr 2fr;
   grid-template-areas:
     'head head'
@@ -78,7 +79,7 @@ body {
 
   @media only screen and (max-width: $bp-large) {
     max-width: 100%;
-    min-height: 130rem;
+    // min-height: 170rem;
     margin: 0;
     border-radius: 0;
     grid-template-columns: 35% 65%;
@@ -90,7 +91,7 @@ body {
   
   @media only screen and (max-width: $bp-small) {
     grid-template-columns: 35% 65%;
-    min-height: 120rem;
+    // min-height: 120rem;
   }
   
   @media only screen and (max-width: $bp-smallest) {

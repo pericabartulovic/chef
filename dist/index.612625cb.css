@@ -54,7 +54,7 @@ body {
   overflow: hidden;
   box-shadow: 0 2rem 6rem 0.5rem rgba(97, 85, 81, 0.2);
   display: grid;
-  grid-template-rows: 10rem minmax(100rem, auto);
+  grid-template-rows: 10rem minmax(min-content, max-content);
   grid-template-columns: 1fr 2fr;
   grid-template-areas: "head head" "list recipe";
 }
@@ -62,7 +62,6 @@ body {
 @media only screen and (max-width: 78.15em) {
   .container {
     max-width: 100%;
-    min-height: 130rem;
     margin: 0;
     border-radius: 0;
     grid-template-columns: 35% 65%;
@@ -78,7 +77,6 @@ body {
 @media only screen and (max-width: 37.5em) {
   .container {
     grid-template-columns: 35% 65%;
-    min-height: 120rem;
   }
 }
 
@@ -660,7 +658,7 @@ body {
 }
 
 .recipe {
-  grid-area: head/recipe;
+  grid-area: head/recipe/recipe/recipe;
 }
 
 .recipe__fig {
